@@ -45,7 +45,7 @@ const Chats = ({ load }) => {
     return () => {
       unsub();
     };
-  }, [data.chatId]);
+  }, [data.chatId,load]);
   return (
     <div className="chat-container">
       <div className="chat-nav">
@@ -57,11 +57,11 @@ const Chats = ({ load }) => {
             {messages.length > 0 &&
               messages.map((m) => (
                 <div className={m.senderId === currentUser.uid ? "outgoing" : "incoming"}>
-                  <img src={m.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL}></img>
+                  <img src={m.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt=""></img>
                   <span className="msg">{m?.text}</span>
                 </div>
               ))}
-            {messages.length==0 && <div className="empty-chat">No Chats to show</div>}
+            {messages.length===0 && <div className="empty-chat">No Chats to show</div>}
           </div>
         )}
         <div className="send-msg">

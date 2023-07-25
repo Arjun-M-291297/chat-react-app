@@ -105,7 +105,7 @@ const Sidebar = ({ onChatClick }) => {
         </div>
         <div className="nav-right">
           <div className="profile-img">
-            <img src={currentUser.photoURL}></img>
+            <img src={currentUser.photoURL} alt=""></img>
           </div>
           <div className="profile-name">{currentUser.displayName}</div>
           <button onClick={() => signOut(auth)}>Logout</button>
@@ -125,10 +125,10 @@ const Sidebar = ({ onChatClick }) => {
         <div className="user-list">
           {err && <span>Something went wrong</span>}
           {searchOn}
-          {username != "" && !searchOn && (
+          {username !== "" && !searchOn && (
             <div className="user">
               <div className="user-image">
-                <img src={user.photoURL}></img>
+                <img src={user.photoURL} alt=""></img>
               </div>
               <div className="user-content" onClick={handleSelect}>
                 <div className="user-name">{user.displayName}</div>
@@ -137,11 +137,11 @@ const Sidebar = ({ onChatClick }) => {
             </div>
           )}
           {!loading &&
-            username == "" &&
+            username === "" &&
             chatsFiltered().map((item) => (
               <div className="user">
                 <div className="user-image">
-                  <img src={item.photoURL}></img>
+                  <img src={item.photoURL} alt=""></img>
                 </div>
                 <div className="user-content" onClick={() => handleUserClick(item.displayName)}>
                   <div className="user-name">{item.displayName}</div>

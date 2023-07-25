@@ -27,7 +27,7 @@ const Register = () => {
 
       const storageRef = ref(storage, displayName);
       const uploadTask = await uploadBytesResumable(storageRef, file, metadata);
-      if (uploadTask.state == "success") {
+      if (uploadTask.state === "success") {
         // Upload completed successfully, now we can get the download URL
         getDownloadURL(uploadTask.ref).then(async (downloadURL) => {
           await updateProfile(res.user, {
@@ -69,7 +69,7 @@ const Register = () => {
           <input type="password" placeholder="Password"></input>
           <input style={{ display: "none" }} type="file" id="file"></input>
           <label htmlFor="file">
-            <img src={uploadImg} alt="upload-image-toBe"></img>
+            <img src={uploadImg} alt=""></img>
           </label>
           <button>Sign Up</button>
         </form>
